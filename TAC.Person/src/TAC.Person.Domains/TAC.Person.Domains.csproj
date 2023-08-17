@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TAC.Person.Interfaces\TAC.Person.Interfaces.csproj" />
+    <ProjectReference Include="..\TAC.Person.Models\TAC.Person.Models.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
