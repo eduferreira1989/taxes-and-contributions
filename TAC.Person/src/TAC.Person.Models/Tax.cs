@@ -6,6 +6,8 @@ public class Tax : IEntity
 {
     public Guid Id { get; init; }
 
+    public required Guid PersonId { get; set; }
+
     /// <summary>
     /// Payment that this tax refers to
     /// </summary>

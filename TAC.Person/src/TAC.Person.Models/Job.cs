@@ -6,6 +6,8 @@ public class Job : IEntity
 {
     public Guid Id { get; init; }
 
+    public required Guid PersonId { get; set; }
+
     public required Guid CompanyId { get; set; }
 
     public required string CompanyName { get; set; }
