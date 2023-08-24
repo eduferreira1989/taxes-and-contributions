@@ -4,5 +4,5 @@ namespace TAC.Person.Interfaces;
 
 public interface ISalaryService
 {
-    Task ReceiveAsync(Salary salary);
+    Task AddAsync(Salary salary);
 }

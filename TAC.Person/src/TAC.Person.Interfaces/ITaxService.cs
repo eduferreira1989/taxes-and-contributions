@@ -4,7 +4,7 @@ namespace TAC.Person.Interfaces;
 
 public interface ITaxService
 {
-    Task AssignAsync(Tax tax);
+    Task AddAsync(Tax tax);
 
     Task PayAsync(Tax tax);
 }

@@ -26,7 +26,7 @@ public static class Extensions
 
     public static ReadPersonDto AsDto(this Person person)
     {
-        return new ReadPersonDto(person.Id, person.Name, person.VatNumber, person.SocialSecurityNumber, person.DateOfBirth,
+        return new ReadPersonDto(person.Id, person.Name, person.DateOfBirth,
                                     person.Jobs.Select(j => j.AsDto()).ToList(), person.Salaries.Select(s => s.AsDto()).ToList(),
                                     person.Taxes.Select(t => t.AsDto()).ToList(), person.Contributions.Select(c => c.AsDto()).ToList());
     }
@@ -36,8 +36,6 @@ public static class Extensions
         return new Person()
         {
             Name = createPersonDto.Name,
-            VatNumber = createPersonDto.VatNumber,
-            SocialSecurityNumber = createPersonDto.SocialSecurityNumber,
             DateOfBirth = createPersonDto.DateOfBirth
         };
     }
@@ -47,8 +45,6 @@ public static class Extensions
         return new Person()
         {
             Name = updatePersonDto.Name,
-            VatNumber = updatePersonDto.VatNumber,
-            SocialSecurityNumber = updatePersonDto.SocialSecurityNumber,
             DateOfBirth = updatePersonDto.DateOfBirth
         };
     }

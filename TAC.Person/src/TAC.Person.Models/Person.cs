@@ -16,10 +16,6 @@ public class Person : IEntity
 
     public required string Name { get; set; }
 
-    public required string VatNumber { get; set; }
-
-    public required string SocialSecurityNumber { get; set; }
-
     public required DateTimeOffset DateOfBirth { get; set; }
 
     public IList<Job> Jobs { get; set; }
