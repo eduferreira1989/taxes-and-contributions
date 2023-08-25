@@ -5,12 +5,12 @@ using TAC.Common.Interfaces;
 
 namespace TAC.Common.MongoDB;
 
-public class MongoShardRepository<T> : IRepository<T> where T : IEntity
+public class MongoRepository<T> : IRepository<T> where T : IEntity
 {
     private readonly IMongoCollection<T> dbCollection;
     private readonly FilterDefinitionBuilder<T> filterBuilder = Builders<T>.Filter;
 
-    public MongoShardRepository(IMongoDatabase mongoDatabase, string collectionName)
+    public MongoRepository(IMongoDatabase mongoDatabase, string collectionName)
     {
         dbCollection = mongoDatabase.GetCollection<T>(collectionName);
     }
