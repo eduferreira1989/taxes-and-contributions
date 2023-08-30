@@ -4,14 +4,9 @@ namespace TAC.Person.Models.Extensions;
 
 public static class Extensions
 {
-    public static PersonJobDto AsDto(this Job job)
+    public static PersonPaymentDto AsDto(this Payment payment)
     {
-        return new PersonJobDto(job.Id, job.PersonId, job.CompanyId, job.CompanyName, job.StartDate, job.EndDate, job.Salary);
-    }
-
-    public static PersonSalaryDto AsDto(this Salary salary)
-    {
-        return new PersonSalaryDto(salary.Id, salary.PersonId, salary.PaymentId, salary.GrossValue, salary.DateOfPayment);
+        return new PersonPaymentDto(payment.Id, payment.PersonId, payment.GrossValue, payment.DateOfPayment);
     }
 
     public static PersonTaxDto AsDto(this Tax tax)
@@ -26,8 +21,7 @@ public static class Extensions
 
     public static ReadPersonDto AsDto(this Person person)
     {
-        return new ReadPersonDto(person.Id, person.Name, person.DateOfBirth,
-                                    person.Jobs.Select(j => j.AsDto()).ToList(), person.Salaries.Select(s => s.AsDto()).ToList(),
+        return new ReadPersonDto(person.Id, person.Name, person.DateOfBirth, person.Payments.Select(p => p.AsDto()).ToList(),
                                     person.Taxes.Select(t => t.AsDto()).ToList(), person.Contributions.Select(c => c.AsDto()).ToList());
     }
 
@@ -49,27 +43,13 @@ public static class Extensions
         };
     }
 
-    public static Job AsDto(this PersonJobDto job)
+    public static Payment AsDto(this PersonPaymentDto payment)
     {
-        return new Job
+        return new Payment
         {
-            PersonId = job.PersonId,
-            CompanyId = job.CompanyId,
-            CompanyName = job.CompanyName,
-            StartDate = job.StartDate,
-            EndDate = job.EndDate,
-            Salary = job.Salary
-        };
-    }
-
-    public static Salary AsDto(this PersonSalaryDto salary)
-    {
-        return new Salary
-        {
-            PersonId = salary.PersonId,
-            PaymentId = salary.PaymentId,
-            GrossValue = salary.GrossValue,
-            DateOfPayment = salary.DateOfPayment
+            PersonId = payment.PersonId,
+            GrossValue = payment.GrossValue,
+            DateOfPayment = payment.DateOfPayment
         };
     }
 

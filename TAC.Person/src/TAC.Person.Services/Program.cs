@@ -9,8 +9,7 @@ builder.Services.AddMongo()
                 .AddMongoRepository<TAC.Person.Models.Person>("person");
 
 builder.Services.AddScoped<IPersonService, PersonService>();
-builder.Services.AddScoped<IJobService, JobService>();
-builder.Services.AddScoped<ISalaryService, SalaryService>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<ITaxService, TaxService>();
 builder.Services.AddScoped<IContributionService, ContributionService>();
 

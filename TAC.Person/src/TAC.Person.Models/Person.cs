@@ -6,9 +6,8 @@ public class Person : IEntity
 {
     public Person()
     {
-        Jobs = new List<Job>();
         Taxes = new List<Tax>();
-        Salaries = new List<Salary>();
+        Payments = new List<Payment>();
         Contributions = new List<Contribution>();
     }
 
@@ -18,9 +17,7 @@ public class Person : IEntity
 
     public required DateTimeOffset DateOfBirth { get; set; }
 
-    public IList<Job> Jobs { get; set; }
-
-    public IList<Salary> Salaries { get; set; }
+    public IList<Payment> Payments { get; set; }
 
     public IList<Tax> Taxes { get; set; }
 
