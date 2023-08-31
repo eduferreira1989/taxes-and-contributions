@@ -12,7 +12,7 @@ public interface IPersonService
 
     Task CreateAsync(Models.Person person);
 
-    Task UpdateAsync(Models.Person person);
+    Task UpdateAsync(Guid id, Models.Person person);
 
     Task DeleteAsync(Guid id);
 }

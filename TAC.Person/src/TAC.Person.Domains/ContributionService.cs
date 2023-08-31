@@ -25,7 +25,7 @@ public class ContributionService : IContributionService
             throw new ContributionAlreadyAddedException(contribution);
         }
         person.Contributions.Add(contribution);
-        await _personService.UpdateAsync(person);
+        await _personService.UpdateAsync(contribution.PersonId, person);
     }
 
     public async Task PayAsync(Contribution contribution)
@@ -43,6 +43,6 @@ public class ContributionService : IContributionService
 
         contributionItem.IsPaid = contribution.IsPaid;
 
-        await _personService.UpdateAsync(person);
+        await _personService.UpdateAsync(contribution.PersonId, person);
     }
 }

@@ -21,6 +21,6 @@ public class PaymentService : IPaymentService
             throw new PersonNotFoundException(payment.PersonId.ToString());
         }
         person.Payments.Add(payment);
-        await _personService.UpdateAsync(person);
+        await _personService.UpdateAsync(payment.PersonId, person);
     }
 }

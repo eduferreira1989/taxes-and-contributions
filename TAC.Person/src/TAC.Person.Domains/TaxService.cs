@@ -25,7 +25,7 @@ public class TaxService : ITaxService
             throw new TaxAlreadyAddedException(tax);
         }
         person.Taxes.Add(tax);
-        await _personService.UpdateAsync(person);
+        await _personService.UpdateAsync(tax.PersonId, person);
     }
 
     public async Task PayAsync(Tax tax)
@@ -43,6 +43,6 @@ public class TaxService : ITaxService
 
         taxItem.IsPaid = tax.IsPaid;
 
-        await _personService.UpdateAsync(person);
+        await _personService.UpdateAsync(tax.PersonId, person);
     }
 }
