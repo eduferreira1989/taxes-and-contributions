@@ -43,37 +43,37 @@ public static class Extensions
         };
     }
 
-    public static Payment AsDto(this PersonPaymentDto payment)
+    public static Payment AsPayment(this PersonPaymentDto paymentDto)
     {
         return new Payment
         {
-            PersonId = payment.PersonId,
-            GrossValue = payment.GrossValue,
-            DateOfPayment = payment.DateOfPayment
+            PersonId = paymentDto.PersonId,
+            GrossValue = paymentDto.GrossValue,
+            DateOfPayment = paymentDto.DateOfPayment
         };
     }
 
-    public static Tax AsDto(this PersonTaxDto tax)
+    public static Tax AsTax(this PersonTaxDto taxDto)
     {
         return new Tax
         {
-            PersonId = tax.PersonId,
-            PaymentId = tax.PaymentId,
-            Value = tax.Value,
-            LimitDateOfPayment = tax.LimitDateOfPayment,
-            IsPaid = tax.IsPaid
+            PersonId = taxDto.PersonId,
+            PaymentId = taxDto.PaymentId,
+            LimitDateOfPayment = taxDto.LimitDateOfPayment,
+            Value = taxDto.Value,
+            IsPaid = taxDto.IsPaid
         };
     }
 
-    public static Contribution AsDto(this PersonContributionDto contribution)
+    public static Contribution AsContribution(this PersonContributionDto contributionDto)
     {
         return new Contribution
         {
-            PersonId = contribution.PersonId,
-            PaymentId = contribution.PaymentId,
-            Value = contribution.Value,
-            LimitDateOfPayment = contribution.LimitDateOfPayment,
-            IsPaid = contribution.IsPaid
+            PersonId = contributionDto.PersonId,
+            PaymentId = contributionDto.PaymentId,
+            LimitDateOfPayment = contributionDto.LimitDateOfPayment,
+            Value = contributionDto.Value,
+            IsPaid = contributionDto.IsPaid
         };
     }
 }
