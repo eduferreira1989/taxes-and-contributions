@@ -1,0 +1,35 @@
+version: "3.8"
+
+services: 
+  mongo: 
+    image: mongo
+    container_name: mongo.tac
+    ports:
+      - 27017:27017
+    volumes: 
+      - mongodbdata:/data/db/tac
+
+  rabbitmq:
+    image: rabbitmq:management
+    container_name: rabbitmq.tac
+    ports: 
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmqdata:/var/lib/rabbitmq/tac
+    hostname: rabbitmq
+    
+volumes:
+  mongodbdata: 
+  rabbitmqdata:
+    
+
+
+
+
+
+
+
+
+
+
