@@ -31,6 +31,7 @@ public class PersonController : ControllerBase
 
     // GET /person/{id}
     [HttpGet("{id}")]
+    [ActionName(nameof(GetByIdAsync))]
     public async Task<ActionResult<ReadPersonDto>> GetByIdAsync(Guid id)
     {
         if (id == Guid.Empty)
@@ -66,8 +67,10 @@ public class PersonController : ControllerBase
         {
             throw;
         }
+        var createdPersonData = await _personService.GetAllAsync(p => p.Name == person.Name && p.DateOfBirth == person.DateOfBirth);
+        var createdPerson = createdPersonData.First().AsDto();
 
-        return CreatedAtAction(nameof(GetByIdAsync), new { id = createPersonDto.Id }, createPersonDto);
+        return CreatedAtAction(nameof(GetByIdAsync), new { id = createdPerson.Id }, createdPerson);
     }
 
     // PUT /person/{id}

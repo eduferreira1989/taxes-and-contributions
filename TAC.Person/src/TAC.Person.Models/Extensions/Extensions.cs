@@ -38,6 +38,7 @@ public static class Extensions
     {
         return new Person()
         {
+            Id = updatePersonDto.Id,
             Name = updatePersonDto.Name,
             DateOfBirth = updatePersonDto.DateOfBirth
         };
