@@ -21,7 +21,7 @@ public class PaymentController : ControllerBase
 
     // POST /payment
     [HttpPost]
-    public async Task<ActionResult> PostAsync(PersonPaymentDto paymentDto)
+    public async Task<ActionResult> PostAsync(CreatePersonPaymentDto paymentDto)
     {
         var payment = paymentDto.AsPayment();
 

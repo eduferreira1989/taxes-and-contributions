@@ -21,7 +21,7 @@ public class ContributionController : ControllerBase
 
     // POST /contribution
     [HttpPost]
-    public async Task<ActionResult> PostAsync(PersonContributionDto contributionDto)
+    public async Task<ActionResult> PostAsync(PayPersonContributionDto contributionDto)
     {
         var contribution = contributionDto.AsContribution();
 

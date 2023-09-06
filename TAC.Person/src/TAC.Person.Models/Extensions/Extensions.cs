@@ -4,19 +4,19 @@ namespace TAC.Person.Models.Extensions;
 
 public static class Extensions
 {
-    public static PersonPaymentDto AsDto(this Payment payment)
+    public static ReadPersonPaymentDto AsDto(this Payment payment)
     {
-        return new PersonPaymentDto(payment.Id, payment.PersonId, payment.GrossValue, payment.DateOfPayment);
+        return new ReadPersonPaymentDto(payment.Id, payment.PersonId, payment.GrossValue, payment.DateOfPayment);
     }
 
-    public static PersonTaxDto AsDto(this Tax tax)
+    public static ReadPersonTaxDto AsDto(this Tax tax)
     {
-        return new PersonTaxDto(tax.Id, tax.PersonId, tax.PaymentId, tax.Value, tax.LimitDateOfPayment, tax.IsPaid);
+        return new ReadPersonTaxDto(tax.Id, tax.PersonId, tax.PaymentId, tax.Value, tax.LimitDateOfPayment, tax.IsPaid);
     }
 
-    public static PersonContributionDto AsDto(this Contribution contribution)
+    public static ReadPersonContributionDto AsDto(this Contribution contribution)
     {
-        return new PersonContributionDto(contribution.Id, contribution.PersonId, contribution.PaymentId, contribution.Value, contribution.LimitDateOfPayment, contribution.IsPaid);
+        return new ReadPersonContributionDto(contribution.Id, contribution.PersonId, contribution.PaymentId, contribution.Value, contribution.LimitDateOfPayment, contribution.IsPaid);
     }
 
     public static ReadPersonDto AsDto(this Person person)
@@ -44,17 +44,28 @@ public static class Extensions
         };
     }
 
-    public static Payment AsPayment(this PersonPaymentDto paymentDto)
+    public static Payment AsPayment(this CreatePersonPaymentDto createPaymentDto)
     {
         return new Payment
         {
-            PersonId = paymentDto.PersonId,
-            GrossValue = paymentDto.GrossValue,
-            DateOfPayment = paymentDto.DateOfPayment
+            PersonId = createPaymentDto.PersonId,
+            GrossValue = createPaymentDto.GrossValue,
+            DateOfPayment = createPaymentDto.DateOfPayment
         };
     }
 
-    public static Tax AsTax(this PersonTaxDto taxDto)
+    public static Payment AsPayment(this UpdatePersonPaymentDto updatePaymentDto)
+    {
+        return new Payment
+        {
+            Id = updatePaymentDto.Id,
+            PersonId = updatePaymentDto.PersonId,
+            GrossValue = updatePaymentDto.GrossValue,
+            DateOfPayment = updatePaymentDto.DateOfPayment
+        };
+    }
+
+    public static Tax AsTax(this PayPersonTaxDto taxDto)
     {
         return new Tax
         {
@@ -66,7 +77,7 @@ public static class Extensions
         };
     }
 
-    public static Contribution AsContribution(this PersonContributionDto contributionDto)
+    public static Contribution AsContribution(this PayPersonContributionDto contributionDto)
     {
         return new Contribution
         {

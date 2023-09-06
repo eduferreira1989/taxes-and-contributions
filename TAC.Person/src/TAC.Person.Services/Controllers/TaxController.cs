@@ -21,7 +21,7 @@ public class TaxController : ControllerBase
 
     // POST /tax
     [HttpPost]
-    public async Task<ActionResult> PostAsync(PersonTaxDto taxDto)
+    public async Task<ActionResult> PostAsync(PayPersonTaxDto taxDto)
     {
         var tax = taxDto.AsTax();
 
