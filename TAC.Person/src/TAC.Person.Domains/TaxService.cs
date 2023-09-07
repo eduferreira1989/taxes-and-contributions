@@ -35,12 +35,13 @@ public class TaxService : ITaxService
         {
             throw new PersonNotFoundException(tax.PersonId.ToString());
         }
-        var taxItem = person.Taxes.SingleOrDefault(t => t.PaymentId == tax.PaymentId);
+        var taxItem = person.Taxes.SingleOrDefault(t => t.Id == tax.Id);
         if (taxItem == null)
         {
             throw new TaxNotAddedException(tax);
         }
 
+        taxItem.Value = tax.Value;
         taxItem.IsPaid = tax.IsPaid;
 
         await _personService.UpdateAsync(tax.PersonId, person);

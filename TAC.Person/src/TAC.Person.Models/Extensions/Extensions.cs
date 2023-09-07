@@ -48,6 +48,7 @@ public static class Extensions
     {
         return new Payment
         {
+            Id = Guid.NewGuid(),
             PersonId = createPaymentDto.PersonId,
             GrossValue = createPaymentDto.GrossValue,
             DateOfPayment = createPaymentDto.DateOfPayment
@@ -69,9 +70,10 @@ public static class Extensions
     {
         return new Tax
         {
+            Id = taxDto.Id,
             PersonId = taxDto.PersonId,
-            PaymentId = taxDto.PaymentId,
-            LimitDateOfPayment = taxDto.LimitDateOfPayment,
+            PaymentId = Guid.Empty,
+            LimitDateOfPayment = DateTimeOffset.MinValue,
             Value = taxDto.Value,
             IsPaid = taxDto.IsPaid
         };
@@ -81,9 +83,10 @@ public static class Extensions
     {
         return new Contribution
         {
+            Id = contributionDto.Id,
             PersonId = contributionDto.PersonId,
-            PaymentId = contributionDto.PaymentId,
-            LimitDateOfPayment = contributionDto.LimitDateOfPayment,
+            PaymentId = Guid.Empty,
+            LimitDateOfPayment = DateTimeOffset.MinValue,
             Value = contributionDto.Value,
             IsPaid = contributionDto.IsPaid
         };

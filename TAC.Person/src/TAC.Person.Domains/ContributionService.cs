@@ -35,12 +35,13 @@ public class ContributionService : IContributionService
         {
             throw new PersonNotFoundException(contribution.PersonId.ToString());
         }
-        var contributionItem = person.Contributions.SingleOrDefault(c => c.PaymentId == contribution.PaymentId);
+        var contributionItem = person.Contributions.SingleOrDefault(c => c.Id == contribution.Id);
         if (contributionItem == null)
         {
             throw new ContributionNotAddedException(contribution);
         }
 
+        contributionItem.Value = contribution.Value;
         contributionItem.IsPaid = contribution.IsPaid;
 
         await _personService.UpdateAsync(contribution.PersonId, person);

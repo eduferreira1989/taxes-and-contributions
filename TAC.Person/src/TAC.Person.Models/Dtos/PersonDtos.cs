@@ -15,12 +15,12 @@ public record ReadPersonPaymentDto(Guid Id, Guid PersonId, double GrossValue, Da
 
 public record CreatePersonTaxDto(Guid PersonId, Guid PaymentId, double Value, DateTimeOffset LimitDateOfPayment, bool IsPaid);
 
-public record PayPersonTaxDto(Guid Id, Guid PersonId, Guid PaymentId, double Value, DateTimeOffset LimitDateOfPayment, bool IsPaid);
+public record PayPersonTaxDto(Guid Id, Guid PersonId, double Value, bool IsPaid);
 
 public record ReadPersonTaxDto(Guid Id, Guid PersonId, Guid PaymentId, double Value, DateTimeOffset LimitDateOfPayment, bool IsPaid);
 
 public record CreatePersonContributionDto(Guid PersonId, Guid PaymentId, double Value, DateTimeOffset LimitDateOfPayment, bool IsPaid);
 
-public record PayPersonContributionDto(Guid Id, Guid PersonId, Guid PaymentId, double Value, DateTimeOffset LimitDateOfPayment, bool IsPaid);
+public record PayPersonContributionDto(Guid Id, Guid PersonId, double Value, bool IsPaid);
 
 public record ReadPersonContributionDto(Guid Id, Guid PersonId, Guid PaymentId, double Value, DateTimeOffset LimitDateOfPayment, bool IsPaid);
